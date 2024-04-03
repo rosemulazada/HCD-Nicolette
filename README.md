@@ -22,8 +22,6 @@ She has limited use of her limbs and relies on speech software and her drawing t
 
 She has not always been limited, once she became neurologically ill and since then she has been using a wheelchair to get around. She was not always passionate about helping people with disabilities, because she found she had more important things to focus on than simply being disabled; but she describes herself as a people person to the core, so who is she not to help when people are in need? This is how she ended up getting involved in taking the first steps towards accessibility in the city, and she has achieved amazing things since then. If ever anything befell you and you were to end up in a wheelchair, you would surely be thankful to Nicolette; a pioneer in accessibility in Amsterdam, and Amsterdammer of the Year in 2016 as well as Knight of the Order of Orange-Nassau, as dubbed by the King of the Netherlands himself!
 
-_More TBA._
-
 ## Installation
 Here are the steps to install my project.
 
@@ -34,7 +32,7 @@ Here are the steps to install my project.
     - If not, you can find the document on your device, navigate to the `index.html` file (this should be visible just by opening up `HDC-Nicolette`), right-click it and open in a browser of your choosing. I've used Arc and Google Chrome to test this project, so I can recommend these two.
 4. Navigate to the iteration of the project you want to view on the home page!
 
-This project is also online: find the link at the top of this repository, under the description on the right! Or, for ease of access, [right here.]()
+This project is also online: find the link at the top of this repository, under the description on the right! Or, for ease of access, [right here.](https://hcd-nicolette.vercel.app/)
 
 <!-- ## Usage and Features -->
 
