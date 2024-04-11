@@ -20,19 +20,18 @@ function enlargeTextOnHover(element) {
                 firstWord = event.target;
                 isStart = false;
             } else {
-                // Second click, set endNode
-                const endNode = event.target.nextElementSibling;
+                // Is not start, meaning this is the second click
+                const lastWord = event.target.nextElementSibling;
 
                 const wordsSelection = window.getSelection();
                 const range = document.createRange();
 
                 range.setStart(firstWord, 0);
-                range.setEnd(endNode, 0);
+                range.setEnd(lastWord, 0);
 
                 wordsSelection.removeAllRanges();
                 wordsSelection.addRange(range);
 
-                // Reset variables for next selection
                 firstWord = null;
                 isStart = true; // Reset toggle variable
             }
