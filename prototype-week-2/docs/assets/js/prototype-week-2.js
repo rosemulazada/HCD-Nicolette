@@ -1,6 +1,9 @@
 let firstWord = null;
 let isStart = true;
 
+// TODO: FEAT - Show the range of words copied.
+// TODO: FIX - Allow the copy/paste to also work on non-paragraphs.
+
 function enlargeTextOnHover(element) {
     const words = element.textContent.trim().split(/\s+/);
     element.innerHTML = words
@@ -32,6 +35,11 @@ function enlargeTextOnHover(element) {
                 wordsSelection.removeAllRanges();
                 wordsSelection.addRange(range);
 
+                // Toggle class directly if clicked on the same word
+                if (event.target === firstWord) {
+                    event.target.classList.toggle("grow");
+                }
+
                 firstWord = null;
                 isStart = true; // Reset toggle variable
             }
@@ -45,41 +53,60 @@ document
         enlargeTextOnHover(element);
     });
 
-document.getElementById("plak").addEventListener("click", function (event) {
-    copyText();
-});
-
-document.addEventListener('keydown', function (event) {
-    if (event.key === 'k') {
-        copyText();
-    }
-})
-
-document.getElementById("plak").addEventListener("click", function (event) {
-    pasteText();
-});
-
+// Copy text to clipboard
 async function copyText() {
-    try {
-        const selectedText = window.getSelection().toString();
+    const selectedText = window.getSelection().toString();
 
+    try {
         // Clipboard API
         if (selectedText) {
             await navigator.clipboard.writeText(selectedText);
-            console.log("Text copied!");
+            const clipboardText = await navigator.clipboard.readText();
+            console.log("Text copied!: ", selectedText);
+            const twitterShareBtn = document.querySelector(
+                ".twitter-share-button"
+            );
+            console.log(twitterShareBtn);
+            twitterShareBtn.setAttribute(
+                "href",
+                `https://twitter.com/intent/tweet?text=${clipboardText}`
+            );
+            return selectedText;
         } else {
             console.log("No text selected to copy!");
+            return null; // Return null if no text is selected
         }
     } catch (err) {
         console.error("Failed to copy text: ", err);
+        return null; // Return null in case of error
     }
-    return navigator.clipboard.writeText(selectedText);
 }
 
 const textArea = document.getElementById("textarea");
-async function pasteText() {
-    Promise.all(copyText(), console.log(copyText()));
-    textArea.innerHTML = "Your copied text here";
-    textArea.style.paddingTop = "1em";
-    textArea.style.paddingLeft = "1em";
+let clipboardText;
+// Paste text into text area
+async function updateTextArea() {
+    try {
+        const clipboardText = await navigator.clipboard.readText();
+        textArea.textContent = clipboardText;
+        textArea.style.paddingTop = "1em";
+        textArea.style.paddingLeft = "1em";
+        // tweet functionality
+    } catch (err) {
+        console.error("Failed to read clipboard text: ", err);
+    }
+}
+
+// Copy btn
+document.getElementById("kopieeren").addEventListener("click", function () {
+    copyText();
+});
+
+// Paste btn
+document.getElementById("plak").addEventListener("click", function (event) {
+    updateTextArea();
+});
+
+function scrollDown() {
+    window.scrollBy(0, 200); // Adjust the value (200) to change the scroll amount
 }

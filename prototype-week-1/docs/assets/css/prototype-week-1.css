@@ -38,6 +38,10 @@ h1 {
     font-size: 2em;
 }
 
+p {
+    font-size: 1em;
+}
+
 .enlarge:hover {
     font-size: 3em;
 }
