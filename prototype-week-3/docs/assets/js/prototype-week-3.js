@@ -1,6 +1,9 @@
 let firstWord = null;
 let isStart = true;
 const textArea = document.getElementById("textarea");
+const copyBtn = document.querySelector("#kopieeren");
+const copyAllBtn = document.querySelector("#copy-all");
+const pasteBtn = document.querySelector("#plak");
 const clearBtn = document.querySelector("#clear");
 
 // FIXED:
@@ -77,16 +80,10 @@ async function copyText() {
                 `https://twitter.com/intent/tweet?text=${clipboardText}`
             );
 
-            document.getElementById(
-                "kopieeren"
-            ).innerHTML = `Gekopieërd! <i class="fa-solid fa-copy"></i>`;
-            document.getElementById(
-                "plak"
-            ).innerHTML = `Plakken <i class="fa-solid fa-paste"></i>`;
+            copyBtn.innerHTML = `Gekopieërd! <i class="fa-solid fa-copy"></i>`;
+            copyAllBtn.innerHTML = `Alles kopieëren <i class="fa-solid fa-copy"></i>`;
+            pasteBtn.innerHTML = `Plakken <i class="fa-solid fa-paste"></i>`;
             clearBtn.innerHTML = `Wissen <i class="fa-solid fa-trash"></i>`;
-            document.querySelector(
-                "#copy-all"
-            ).innerHTML = `Alles kopieëren <i class="fa-solid fa-copy"></i>`;
             return selectedText;
         } else {
             console.log("No text selected to copy!");
@@ -106,16 +103,10 @@ async function copyAllText() {
         // Clipboard API
         if (selectedText) {
             await navigator.clipboard.writeText(selectedText);
-            document.querySelector(
-                "#copy-all"
-            ).innerHTML = `Alles gekopieërd! <i class="fa-solid fa-copy"></i>`;
-            document.getElementById(
-                "plak"
-            ).innerHTML = `Plakken <i class="fa-solid fa-paste"></i>`;
+            copyAllBtn.innerHTML = `Alles gekopieërd! <i class="fa-solid fa-copy"></i>`;
+            copyBtn.innerHTML = `Kopieëren <i class="fa-solid fa-copy"></i>`;
+            pasteBtn.innerHTML = `Plakken <i class="fa-solid fa-paste"></i>`;
             clearBtn.innerHTML = `Wissen <i class="fa-solid fa-trash"></i>`;
-            document.getElementById(
-                "kopieeren"
-            ).innerHTML = `Kopieëren <i class="fa-solid fa-copy"></i>`;
             return selectedText;
         } else {
             console.log("No text selected to copy!");
@@ -134,16 +125,10 @@ async function updateTextArea() {
         const currentText = textArea.value;
         const newText = currentText + "\n" + clipboardText;
         textArea.value = newText;
-        document.getElementById(
-            "kopieeren"
-        ).innerHTML = `Kopieëren <i class="fa-solid fa-copy"></i>`;
-        document.getElementById(
-            "plak"
-        ).innerHTML = `Geplakt! <i class="fa-solid fa-paste"></i>`;
+        pasteBtn.innerHTML = `Geplakt! <i class="fa-solid fa-paste"></i>`;
+        copyBtn.innerHTML = `Kopieëren <i class="fa-solid fa-copy"></i>`;
+        copyAllBtn.innerHTML = `Alles kopieëren <i class="fa-solid fa-copy"></i>`;
         clearBtn.innerHTML = `Wissen <i class="fa-solid fa-trash"></i>`;
-        document.querySelector(
-            "#copy-all"
-        ).innerHTML = `Alles kopieëren <i class="fa-solid fa-copy"></i>`;
     } catch (err) {
         console.error("Failed to read clipboard text: ", err);
     }
@@ -153,15 +138,9 @@ async function updateTextArea() {
 function clearTextArea() {
     textArea.value = "";
     clearBtn.innerHTML = `Gewist! <i class="fa-solid fa-trash"></i>`;
-    document.getElementById(
-        "plak"
-    ).innerHTML = `Plakken <i class="fa-solid fa-paste"></i>`;
-    document.querySelector(
-        "#copy-all"
-    ).innerHTML = `Alles kopieëren <i class="fa-solid fa-copy"></i>`;
-    document.getElementById(
-        "kopieeren"
-    ).innerHTML = `Kopieëren <i class="fa-solid fa-copy"></i>`;
+    copyBtn.innerHTML = `Kopieëren <i class="fa-solid fa-copy"></i>`;
+    copyAllBtn.innerHTML = `Alles kopieëren <i class="fa-solid fa-copy"></i>`;
+    pasteBtn.innerHTML = `Plakken <i class="fa-solid fa-paste"></i>`;
 }
 
 // Tweet and Whatsapp share functionality
