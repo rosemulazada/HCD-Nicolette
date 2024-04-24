@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Hover Word Enlargement</title>
+        <link rel="stylesheet" href="./docs/assets/css/prototype-week-3.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+            integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+        <style></style>
+    </head>
+    <body>
+        <section id="document">
+            <h1>Geologie: De Studie van de Aarde</h1>
+
+            <h2>Het Ontstaan van Aardlagen</h2>
+
+            <p id="textContainer">
+                Geologie, de wetenschap die zich bezighoudt met de studie van de
+                aarde en haar processen, onthult de fascinerende geschiedenis
+                van onze planeet. Aardlagen, of gesteentelagen, worden gevormd
+                door een combinatie van verschillende geologische processen,
+                waaronder sedimentatie, vulkanisme en tektoniek. Deze lagen
+                vertegenwoordigen een chronologisch archief van geologische
+                gebeurtenissen en kunnen belangrijke informatie verschaffen over
+                de evolutie van het leven en de aarde zelf.
+            </p>
+
+            <button onclick="copyText()" id="kopieeren">
+                Kopieëren <i class="fa-solid fa-copy"></i>
+            </button>
+            <button onclick="updateTextArea()" id="plak">
+                Plakken <i class="fa-solid fa-paste"></i>
+            </button>
+        </section>
+        <section style="display: flex; flex-direction: column">
+            <h1>Klembord</h1>
+            <textarea
+                placeholder="Hier komt de tekst te staan"
+                name=""
+                id="textarea"
+                cols="30"
+                rows="10"
+            ></textarea>
+            <section id="textarea-bottom-btns">
+                <button onclick="clearTextArea()" id="clear">
+                    Wissen
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+                <button onclick="copyAllText()" id="copy-all">
+                    Alles kopieëren <i class="fa-solid fa-copy"></i>
+                </button>
+            </section>
+        </section>
+        <section id="textarea_btns__container">
+            <section id="socials__container">
+                <a class="twitter-share-button">
+                    <i class="fa-brands fa-twitter"></i
+                ></a>
+
+                <a
+                    id="whatsapp"
+                    data-action="share/whatsapp/share"
+                    target="_blank"
+                >
+                    <i class="fa-brands fa-whatsapp"></i
+                ></a>
+            </section>
+
+            <section id="nav__container">
+                <button onclick="scrollUp()">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+                <button onclick="scrollDown()">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </section>
+        </section>
+
+        <script src="./docs/assets/js/prototype-week-3.js"></script>
+    </body>
+
+    <section id="test"></section>
+</html>

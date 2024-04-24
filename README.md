@@ -5,7 +5,7 @@ My repository for the subject of Human Centred Design for the minor Web Design a
 ## Table of Contents
 
 -   [Introduction](#introduction-to-the-assignment) 
-    -   [About Nicolette Besemer](#about-nicolette-besemer)
+    - [About Nicolette Besemer](#about-nicolette-besemer);
 -   [Installation](#installation)
 -   [Usage and Features](#usage-and-features) TBA
 -   [Reflection](#Reflection) TBA

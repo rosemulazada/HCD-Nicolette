@@ -110,3 +110,7 @@ document.getElementById("plak").addEventListener("click", function (event) {
 function scrollDown() {
     window.scrollBy(0, 200); // Adjust the value (200) to change the scroll amount
 }
+
+function scrollUp() {
+    window.scrollBy(0, -200); // Adjust the value (200) to change the scroll amount
+}
